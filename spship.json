@@ -2,13 +2,13 @@
     {
    "spaceName": "xtrip",
    "speed": "200km",
-   "sits": 4
+   "sits": "4"
     },
 
     {
 
    "spaceName": "xPace",
    "speed": "400km",
-   "sits": 4 
+   "sits": "4" 
 
     }]
