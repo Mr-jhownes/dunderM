@@ -18,22 +18,11 @@ router.get('/', function(req, res) {
 });
 
 
-fs.readFile('./spship.json', 'utf8', (err, jsonString) => {
-  if (err) {
-    console.log(err);
-  }
-  else {
-      try{
-    var data = JSON.parse(jsonString); 
-    console.log(data);
-      }catch (err) {
-          console.log('error parsin JSON '. err);
-      }
-  }
-
-  
+router.get('/get/spaceZ', (req, res) => {
+    res.setHeader('Content-Type', 'text/plain');
+    let content = fs.readFileSync('spship.json', 'utf8'); 
+    res.end(content);
 });
-
 
 
 server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function() {
