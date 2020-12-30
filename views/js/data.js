@@ -20,18 +20,22 @@ function requestShips(){
 
 function shipsRender(data){
     console.log(data);
-    for (var i = 0; i < data.ships.length; i++) {
+    for (var i = 0; i < data.muffins.length; i++) {
         let h1 = document.createElement('H1');
         h1.classList.add('light-speed');
-        h1.innerHTML = data.ships[i].spaceName;
+        h1.innerHTML = data.muffins[i].MuffinName;
         
         spacElement.appendChild(h1);
 
         let h2 = document.createElement('H2');
-        h2.innerHTML = data.ships[i].speed;
+        h2.innerHTML = data.muffins[i].flavour;
 
         spacElement.appendChild(h2);
 
+        let h3 = document.createElement('H3');
+        h3.innerHTML = data.muffins[i].price;
+
+        spacElement.appendChild(h3);
 
     }
 

@@ -1,16 +1,17 @@
 {
-   "ships":[
+   "muffins":[
          {
-            "spaceName": "xtrip",
-            "speed": "200km",
-            "sits": "4"
+            "MuffinName": "The Jim",
+            "flavour": "200km",
+            "price": 2.5
+            
         },
 
         {
 
-            "spaceName": "xPace",
-            "speed": "400km",
-            "sits": "4" 
+            "MuffinName": "The pam",
+            "flavour": "400km",
+            "price": "4" 
 
         }
    ]
