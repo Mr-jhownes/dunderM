@@ -1,4 +1,5 @@
-var http = require('http'),
+//including modules, for its funcionalities
+var http = require('http'), 
     path = require('path'),
     express = require('express'),
     fs = require('fs');

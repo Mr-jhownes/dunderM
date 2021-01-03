@@ -13,6 +13,13 @@ body, html {
   -o-background-size: cover;
   background-size: cover;
 }
+.backg {
+     background: url("/img/muffin.jpg") ;
+     height: 100%; 
+     background-position: center; 
+     background-repeat: no-repeat; 
+     background-size: cover; 
+}
 .hero-image {
   background-image: url("/img/muffin.jpg"); 
   background-color: #cccccc; 
@@ -78,17 +85,47 @@ body, html {
    text-align: center;
    padding-top: 20px;
    align-content: center; 
-    align-items: center;
-  
+   align-items: center;
+   width: 100%;
+   padding-right: 200px;
+   padding-left: 200px;
+   border-radius: 1.5%;
 }
 .formReg h1{
     font-size: 50px;
+    color: beige;
      text-shadow: 3px 3px 3px #d44b4b;
      
 }
 .formReg p {
     font-size: 30px;
     color: aquamarine;
+    font-family: Lucida Console;
+}
+.formReg input {
+    width: 100%;
+    border-radius: 1.5%;
+    background-color: cornflowerblue;
+    font-size: 20px;
+}
+
+.container {
+    background-color:rgba(0, 0, 0, 0.5);
+   text-align: center;
+   padding-top: 100px;
+   align-content: center; 
+   align-items: center;
+   width: 100%;
+   padding-bottom: 100px;
+}
+
+.container h1{
+    color: beige;
+    font-family: Lucida Console;
+}
+.container label{
+    color: beige;
+    font-size: large;
 }
 
 

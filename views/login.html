@@ -3,46 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main page</title>
+    <title>Login</title>
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!--  This page is to login into their account to buy muffins--> 
 </head>
 <body>
-    <!-- nav bar that allows user to access login singup and menu --> 
+    <div class ="backg"></class>
+ <!-- nav bar that allows user to access login singup and menu --> 
     <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="index.html">DunderMuffin</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
+      <li ><a href="index.html">Home</a></li>
       <li><a href="list.html">Our Muffins</a></li>
       <li><a href="#">Our company</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="login.html"><span class="glyphicon glyphicon-user"></span> Log in</a></li>
+      <li><a class="active"><span class="glyphicon glyphicon-user"></span> Log in</a></li>
       <li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
     </ul>
   </div>
 </nav> 
 
-<!-- main page --> 
 
-<div class="jumbotron text-center">
-  <h1>Dunder Muffin</h1>
-  <p>Today, eating muffin is going to save lives</p>
+    <div class="container">
+<div class="main">
+<h1>Login to get the best of us</h1>
+<form id="form_id" method="post" name="myform">
+<label>User Name :</label>
+<input type="text" name="username" id="username"/>
+<label>Password :</label>
+<input type="password" name="password" id="password"/>
+<input type="button" value="Login" id="submit" onclick="validate()"/>
+</form>
+<!-- if the login is successfull send to the list page showing the menu --> 
+<script src="js/login.js"></script>
+</div>
 </div>
 
-<div class="hero-image">
-    <div class="hero-text">
-                
-  </div>
 
-</div>
-
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body>
-
-
 </html>
