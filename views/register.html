@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign up</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class ="bg"></class>
+
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">DunderMuffin</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="list.html">Our Muffins</a></li>
+      <li><a href="#">Our company</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a  class="active"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      
+    </ul>
+  </div>
+</nav> 
+
+
+
+<div class="formReg">
+<h1>REGISTRATION FORM</h1> 
+    <form name="RegForm" action="/submit.php" 
+          onsubmit="return checkregister()" method="post"> 
+        <p>Name: <input type="text" size="65" name="Name" /></p> 
+        <br /> 
+        <p>Address: <input type="text" size="65" name="Address" /></p> 
+        <br /> 
+        <p>E-mail Address: <input type="text" size="65" name="EMail" /></p> 
+        <br /> 
+        <p>Password: <input type="text" size="65" name="Password" /></p> 
+        <br /> 
+        <p>Telephone: <input type="text"  size="65" name="Telephone" /></p> 
+        <br /> 
+  
+        <br /> 
+        <br /> 
+        
+            <input type="submit" 
+                   value="send" name="Submit" /> 
+            <input type="reset" 
+                   value="Reset" name="Reset" /> 
+        </p> 
+    </form> 
+   
+   </div>
+    
+    
+    <script src="js/data.js"></script>
+</body>
+</html>

@@ -2,27 +2,31 @@ var http = require('http'),
     path = require('path'),
     express = require('express'),
     fs = require('fs');
+    expAutoSan = require('express-autosanitizer');
 
-var router = express();
-var server = http.createServer(router);
+var app = express();
+var server = http.createServer(app);// creating a server
 
-router.use(express.static(path.resolve(__dirname, 'views'))); //We define the views folder as the one where all static content will be served
-router.use(express.urlencoded({extended: true})); //We allow the data sent from the client to be coming in as part of the URL in GET and POST requests
-router.use(express.json()); //We include support for JSON that is coming from the client
+app.use(express.static(path.resolve(__dirname, 'views'))); //We define the views folder as the one where all static content will be served
+app.use(express.urlencoded({extended: true})); //We allow the data sent from the client to be coming in as part of the URL in GET and POST requests
+app.use(express.json()); //We include support for JSON that is coming from the client
+app.use(expAutoSan.all);//data sanitizer
 
-
-router.get('/', function(req, res) {
+app.get('/', function(req, res) {
 
   res.render('index');
 
 });
 
 
-router.get('/get/spaceZ', (req, res) => {
-    res.setHeader('Content-Type', 'text/plain');
-    let content = fs.readFileSync('spship.json', 'utf8'); 
+app.get('/get/dunderm', (req, res) => {
+    
+      res.setHeader('Content-Type', 'text/plain');
+    let content = fs.readFileSync('dmuffin.json', 'utf8'); 
+    
     res.end(content);
 });
+
 
 
 server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function() {
