@@ -1,8 +1,13 @@
-var http = require('http'),
+//including modules, for its funcionalities
+const http = require('http'), 
     path = require('path'),
     express = require('express'),
-    fs = require('fs');
-    expAutoSan = require('express-autosanitizer');
+    fs = require('fs'),
+    expAutoSan = require('express-autosanitizer'),
+    logger = require('morgan'),
+    nodemon = require('nodemon'),
+    bodyparse = require('body-parser'),
+    cors = require('cors');
 
 var app = express();
 var server = http.createServer(app);// creating a server
