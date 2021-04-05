@@ -1,9 +1,5 @@
 //including modules, for its funcionalities
-<<<<<<< HEAD
-const http = require('http'), 
-=======
 var http = require('http'), 
->>>>>>> 61da4537dce292f5f4b2a34c0dbbd1f48517de9f
     path = require('path'),
     express = require('express'),
     fs = require('fs'),
