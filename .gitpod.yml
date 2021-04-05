@@ -4,4 +4,5 @@ tasks:
   - name: Running MongoDB
     command: mkdir -p data && mongod --dbpath data
   - name: install nodemon
-    command: npm i -g nodemon && npm start
+    command: npm start
+   
