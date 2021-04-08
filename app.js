@@ -18,22 +18,7 @@ app.use(express.urlencoded({extended: true})); //We allow the data sent from the
 app.use(express.json()); //We include support for JSON that is coming from the client
 app.use(expAutoSan.all);//data sanitizer
 
-app.get('/', function(req, res) {
-
-  res.render('index');
-
-});
-
-
-app.get('/get/dunderm', (req, res) => {
-    
-      res.setHeader('Content-Type', 'text/plain');
-    let content = fs.readFileSync('dmuffin.json', 'utf8'); 
-    
-    res.end(content);
-});
-
-
+app.use(require('./routes'));
 
 server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function() {
         var addr = server.address();
