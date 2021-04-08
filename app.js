@@ -8,6 +8,7 @@ var http = require('http'),
     nodemon = require('nodemon'),
     bodyparse = require('body-parser'),
     cors = require('cors');
+    mongoose = require('mongoose');
 
 var app = express();
 var server = http.createServer(app);// creating a server
@@ -39,5 +40,10 @@ server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function() 
         console.log("Server listening at ", addr.address + ";" + addr.port);
 } )
 
+   const dbURI = "mongodb://localhost/test";
+
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+        .then((result) => console.log('connected to db'))
+        .catch((err) => console.log(err));
 
 
