@@ -17,13 +17,10 @@
     </div>
     <ul class="nav navbar-nav">
       <li><a href="index.html">Home</a></li>
-      <li><a href="list.html">Our Muffins</a></li>
+      <li><a href="admin-list.html">Our Muffins</a></li>
       <li><a href="#">Our company</a></li>
     </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a  class="active"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      
-    </ul>
+   
   </div>
 </nav> 
 
@@ -31,25 +28,22 @@
 <!-- checkregister will be checkin if all the fields are filled-->
 
 <div class="formReg">
-<h1>REGISTRATION FORM</h1> 
-    <form name="RegForm" action="index.html" 
+<h1>Register a new muffin</h1> 
+    <form name="RegForm" action="/admin-list" 
           onsubmit="return checkregister()" method="post"> 
-        <p>Name: <input type="text" size="65" name="Name" /></p> 
+        <p>Name: <input type="text" size="65" name="name" /></p> 
         <br /> 
-        <p>Address: <input type="text" size="65" name="Address" /></p> 
+        <p>Flavour: <input type="text" size="65" name="flavour" /></p> 
         <br /> 
-        <p>E-mail Address: <input type="text" size="65" name="EMail" /></p> 
+        <p>Price: <input type="text" size="65" name="price" /></p> 
         <br /> 
-        <p>Password: <input type="text" size="65" name="Password" /></p> 
-        <br /> 
-        <p>Telephone: <input type="text"  size="65" name="Telephone" /></p> 
-        <br /> 
+      
   
         <br /> 
         <br /> 
         
             <input type="submit" 
-                   value="send" name="Submit" /> 
+                   value="Save" name="Submit" /> 
             <input type="reset" 
                    value="Reset" name="Reset" /> 
         </p> 

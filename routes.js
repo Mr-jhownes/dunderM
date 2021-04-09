@@ -22,9 +22,9 @@ router.get('/', function(req, res) {
 //     res.end(content);
 // });
 
-router.get('/list', adminCtrl.getAdmin);
+router.get('/list', adminCtrl.getMuffin);
 
-router.post('/list', adminCtrl.postUser);
+router.post('/admin-list', adminCtrl.postMuffin);
 
 
 module.exports = router;

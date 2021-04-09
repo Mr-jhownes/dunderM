@@ -1,6 +1,6 @@
-var Admin = require('./models/admin');
+var Admin = require('./models/muffin');
 
-exports.getAdmin = function(req, res){
+exports.getMuffin = function(req, res){
 
     Admin.find({}, function (err, users){
          
@@ -11,7 +11,7 @@ exports.getAdmin = function(req, res){
         });
 };
 
-exports.postUser = function(req, res){
+exports.postMuffin = function(req, res){
     var newAdmin = new Admin(req.body);
 
     newAdmin.save(function (err, user) { 
