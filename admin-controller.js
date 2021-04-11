@@ -2,12 +2,12 @@ var Admin = require('./models/muffin');
 
 exports.getMuffin = function(req, res){
 
-    Admin.find({}, function (err, users){
+    Admin.find({}, function (err, user){
          
         if(err){
             res.status(400).json(err)
         }
-        res.json(users)
+        res.json(user);
         });
 };
 
@@ -18,7 +18,18 @@ exports.postMuffin = function(req, res){
     if(err){
         res.status(400).json(err);
     }
-    res.json(user);
+    //res.json(user);
+    return res.redirect('/admin-list.html');
 
 });
 };
+exports.deleteMuffin = function(req, res){
+
+    Admin.deleteOne({name: req.params.name}, function (err, muffin){
+        if(err){
+            res.status(400).json(err);
+        }
+            res.json(muffin);
+    });
+};
+

@@ -14,17 +14,21 @@ router.get('/', function(req, res) {
 
 
 
-// router.get('/get/dunderm', (req, res) => {
+router.get('/get/dunderm', (req, res) => {
     
-//       res.setHeader('Content-Type', 'text/plain');
-//     let content = fs.readFileSync('dmuffin.json', 'utf8'); 
+       res.setHeader('Content-Type', 'text/plain');
+     let content = fs.readFileSync('./dmuffin.json', 'utf8'); 
     
-//     res.end(content);
-// });
+     res.end(content);
+ });
 
-router.get('/list', adminCtrl.getMuffin);
+router.get('/admin-list', adminCtrl.getMuffin);
 
 router.post('/admin-list', adminCtrl.postMuffin);
+
+router.delete('/admin-list/:name', adminCtrl.deleteMuffin);
+
+
 
 
 module.exports = router;

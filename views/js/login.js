@@ -9,7 +9,7 @@ var username = document.getElementById("username").value;
 var password = document.getElementById("password").value;
 if ( username == "cct" && password == "123"){
 alert ("Login successfully");
-window.location = "list.html"; // Redirecting to other page.
+window.location = "admin-list.html"; // Redirecting to other page.
 return false;
 }
 else{

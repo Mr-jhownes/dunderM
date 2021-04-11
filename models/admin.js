@@ -6,6 +6,7 @@ var userSchema = new mongoose.Schema({
     name: String,
     address: String
 },
+
 { timestamps: true }
 );
 

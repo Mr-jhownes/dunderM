@@ -17,35 +17,37 @@ function requestMuffin(){
             //after json is parsed storing on data and send to function shipsrender
             let data = JSON.parse(this.responseText);
             shipsRender(data);
+            
         }
     };
     //re-initialize the request
-    xhttp.open("GET", "/get/dunderm", true);
+    
+    xhttp.open("GET", "/admin-list", true);
     xhttp.send();
 }
 //function that will loop throgh the data array and printing the element to the screen
 function shipsRender(data){
     console.log(data);
-    for (var i = 0; i < data.muffins.length; i++) {
+    for (var i = 0; i < data.length; i++) {
         //creating headings with the items, and classes so it can be captured on css
         let h1 = document.createElement('H1');
         h1.classList.add('name');
         //getting the name given on json
-        h1.innerHTML = data.muffins[i].MuffinName;
+        h1.innerHTML = data[i].name;
         
         spacElement.appendChild(h1);
 
         let h2 = document.createElement('H2');
         h2.classList.add('flavour');
         //getting the flavour on json
-        h2.innerHTML = data.muffins[i].flavour;
+        h2.innerHTML = data[i].flavour;
 
         spacElement.appendChild(h2);
 
         let h3 = document.createElement('H3');
         h3.classList.add('price');
         //getting price on json
-        h3.innerHTML = data.muffins[i].price;
+        h3.innerHTML = data[i].price;
 
         spacElement.appendChild(h3);
 
@@ -54,7 +56,7 @@ function shipsRender(data){
 }
 //function that will get values from the sign up form
 function checkregister() { 
-        var name = document.forms["RegForm"]["Name"]; 
+        var name = document.forms["RegForm"]["name"]; 
         var flavour = document.forms["RegForm"]["flavour"]; 
         var price = document.forms["RegForm"]["price"]; 
  
