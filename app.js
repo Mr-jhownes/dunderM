@@ -25,7 +25,7 @@ server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function() 
         console.log("Server listening at ", addr.address + ";" + addr.port);
 } )
 
-   const dbURI = "mongodb://localhost/test";
+   const dbURI = "mongodb+srv://Johnny:8141jhow@cluster0.0r5f1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
         .then((result) => console.log('connected to db'))
