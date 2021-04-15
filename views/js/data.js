@@ -33,7 +33,10 @@ function shipsRender(data){
         let h1 = document.createElement('H1');
         h1.classList.add('name');
         //getting the name given on json
-        h1.innerHTML = data[i].name;
+        
+        
+        h1.innerHTML = data[i].name +        
+        '<button id="btn" onclick="myFunction()" name="btn">-   Delete</button>';
         
         spacElement.appendChild(h1);
 
@@ -87,3 +90,9 @@ function checkregister() {
   
                 return true; 
     } 
+
+    function myFunction(){
+       
+
+         var list = document.getElementById("myList");
+    }
