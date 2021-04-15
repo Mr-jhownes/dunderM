@@ -8,11 +8,13 @@ var http = require('http'),
     nodemon = require('nodemon'),
     bodyparse = require('body-parser'),
     cors = require('cors');
-    mongoose = require('mongoose');
+    mongoose = require('mongoose'),
+    dotenv = require('dotenv');
 
 var app = express();
 var server = http.createServer(app);// creating a server
 
+dotenv.config();
 app.use(express.static(path.resolve(__dirname, 'views'))); //We define the views folder as the one where all static content will be served
 app.use(express.urlencoded({extended: true})); //We allow the data sent from the client to be coming in as part of the URL in GET and POST requests
 app.use(express.json()); //We include support for JSON that is coming from the client
@@ -25,7 +27,7 @@ server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function() 
         console.log("Server listening at ", addr.address + ";" + addr.port);
 } )
 
-   const dbURI = "mongodb+srv://Johnny:8141jhow@cluster0.0r5f1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+   const dbURI = process.env.DB_URL;
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
         .then((result) => console.log('connected to db'))
