@@ -22,15 +22,28 @@
       <li ><a href="index.html">Home</a></li>
       <li class="active"><a href="#">Our Muffins</a></li>
       <li><a href="register.html">Create new muffin</a></li>
+      <form name="RegForm" onsubmit="return deleting()" action="/admin-list" 
+           method="delete"> 
+       <li><input type="text" id="muffin" name="name"></li>
+       <li><input type="submit" value="Save" name="Submit" /> </li>
+
     
       </div>
 </nav> 
         <div class="test" h1>Our selection</h1></div>
     <div class="bglist">
+
+        
+        <div id="dunderm"></div>
+
         <!-- dunderm is responsable for passing the menu from json to html --> 
-    <div id="dunderm"></div>
+    
        </class>
     <script src="js/data.js"></script>
+
+    <script src="js/delete.js"></script>
+
+
   
     
 </body>

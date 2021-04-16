@@ -1,8 +1,9 @@
 //this js is responsable for reading the json and passing through the html printing the items on client side
 
 //requesting data from the server
-const spacElement = document.getElementById('dunderm');
+const muffinElement = document.getElementById('dunderm');
 const xhttp = new XMLHttpRequest();
+let data = null;
 
 //executing the function requestmuffin where it will be parsed the data from json
 (function(){
@@ -15,47 +16,60 @@ function requestMuffin(){
         //checking if everything is good, and there are no mistakes
         if (this.readyState == 4 && this.status == 200) {
             //after json is parsed storing on data and send to function shipsrender
-            let data = JSON.parse(this.responseText);
-            shipsRender(data);
-            
+            data = JSON.parse(this.responseText);
+            muffinRender(data);
+            //myFunction(data);
+                        
         }
     };
     //re-initialize the request
-    
+    console.log(data)
     xhttp.open("GET", "/admin-list", true);
     xhttp.send();
 }
 //function that will loop throgh the data array and printing the element to the screen
-function shipsRender(data){
-    console.log(data);
+function muffinRender(data){
+    
     for (var i = 0; i < data.length; i++) {
         //creating headings with the items, and classes so it can be captured on css
-        let h1 = document.createElement('H1');
+        let h1 = document.createElement('h4');
         h1.classList.add('name');
         //getting the name given on json
         
+       // var test = data[i].name;
+        h1.innerHTML = data[i].name;
         
-        h1.innerHTML = data[i].name +        
-        '<button id="btn" onclick="myFunction()" name="btn">-   Delete</button>';
         
-        spacElement.appendChild(h1);
+        //'<button id="btn" onclick="myFunction()" name="btn">-   Delete</button>';
+        
+        muffinElement.appendChild(h1);
 
         let h2 = document.createElement('H2');
         h2.classList.add('flavour');
         //getting the flavour on json
         h2.innerHTML = data[i].flavour;
 
-        spacElement.appendChild(h2);
+        muffinElement.appendChild(h2);
 
         let h3 = document.createElement('H3');
         h3.classList.add('price');
         //getting price on json
         h3.innerHTML = data[i].price;
 
-        spacElement.appendChild(h3);
+        muffinElement.appendChild(h3);
+
+
+        //document.getElementById("myBtn").addEventListener("click", displayDate);
+
+
 
     }
 
+}
+
+function displayDate() {
+  var test =  document.getElementById('dunderm').innerHTML;
+  console.log(test);
 }
 //function that will get values from the sign up form
 function checkregister() { 
@@ -91,8 +105,19 @@ function checkregister() {
                 return true; 
     } 
 
-    function myFunction(){
+  function myFunction(){
        
 
-         var list = document.getElementById("myList");
+         var list = document.getElementById("muffin").value;
+        console.log(list);
+         for (var i = 0; i < data.length; i++) {
+
+            if(list === data[i].name){
+        
+
+            }
+
+            window.alert( 
+              "This name is not registered to delete")
     }
+}
