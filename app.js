@@ -9,7 +9,8 @@ var http = require('http'),
     bodyparse = require('body-parser'),
     cors = require('cors');
     mongoose = require('mongoose'),
-    dotenv = require('dotenv');
+    dotenv = require('dotenv'),
+    methodOverride = require('method-override');
 
 var app = express();
 var server = http.createServer(app);// creating a server
@@ -19,6 +20,7 @@ app.use(express.static(path.resolve(__dirname, 'views'))); //We define the views
 app.use(express.urlencoded({extended: true})); //We allow the data sent from the client to be coming in as part of the URL in GET and POST requests
 app.use(express.json()); //We include support for JSON that is coming from the client
 app.use(expAutoSan.all);//data sanitizer
+app.use(methodOverride('_method'));
 
 app.use(require('./routes'));
 

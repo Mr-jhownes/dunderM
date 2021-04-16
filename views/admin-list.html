@@ -22,10 +22,9 @@
       <li ><a href="index.html">Home</a></li>
       <li class="active"><a href="#">Our Muffins</a></li>
       <li><a href="register.html">Create new muffin</a></li>
-      <form name="RegForm" onsubmit="return deleting()" action="/admin-list" 
-           method="delete"> 
-       <li><input type="text" id="muffin" name="name"></li>
-       <li><input type="submit" value="Save" name="Submit" /> </li>
+      <form method="post" onsubmit="return deleting()" action="/admin-list/{{name}}?_method=DELETE"> 
+       <li><input type="text"  name="_method" value="DELETE"></li>
+       <li><input type="submit" /> </li>
 
     
       </div>

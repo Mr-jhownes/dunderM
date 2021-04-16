@@ -25,7 +25,7 @@ exports.postMuffin = function(req, res){
 };
 exports.deleteMuffin = function(req, res){
 
-    Admin.deleteOne({name: req.params.name}, function (err, muffin){
+    Admin.deleteOne({_id: req.params.name}, function (err, muffin){
         if(err){
             res.status(400).json(err);
         }

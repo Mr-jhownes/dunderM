@@ -1,6 +1,7 @@
 const express = require('express'),
 fs = require('fs');
 router = express.Router();
+methodOverride = require('method-override');
 
 
 var adminCtrl = require('./admin-controller')
@@ -12,7 +13,7 @@ router.get('/', function(req, res) {
 });
 
 
-
+router.use(methodOverride('_method'));
 
 router.get('/get/dunderm', (req, res) => {
     
@@ -21,12 +22,13 @@ router.get('/get/dunderm', (req, res) => {
     
      res.end(content);
  });
+router.delete('/admin-list/:name', adminCtrl.deleteMuffin);
 
 router.get('/admin-list', adminCtrl.getMuffin);
 
 router.post('/admin-list', adminCtrl.postMuffin);
 
-router.delete('/admin-list/:name', adminCtrl.deleteMuffin);
+
 
 
 
