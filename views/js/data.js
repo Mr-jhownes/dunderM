@@ -30,80 +30,105 @@ function requestMuffin(){
 //function that will loop throgh the data array and printing the element to the screen
 function muffinRender(data){
     
+    var muffin2;
+
+    var col= ["_id", "name", "flavour", "price"];
+
+    var tb = document.createElement("table");
+    tb.className = "container table";
+
+    var tr = tb.insertRow(-1);
+
+    for(var i = 0; i< col.length; i++){
+        var th = document.createElement("th");
+        th.innerHTML = col[i];
+        tr.appendChild(th);
+        
+    }
+
     for (var i = 0; i < data.length; i++) {
-        //creating headings with the items, and classes so it can be captured on css
-        let h1 = document.createElement('h4');
-        h1.classList.add('name');
-        //getting the name given on json
+            
+        tr = tb.insertRow(-1);
+        tr.addEventListener('click', pickData(data[i]));
+        tr.id = data[i]._id
+        for(var j = 0; j < col.length; j++){
+            var newItem = tr.insertCell(-1);
+            newItem.innerHTML = data[i][col[j]];
+        }
+    }
+    muffinElement.innerHTML = "";
+    muffinElement.appendChild(tb);
         
-       // var test = data[i].name;
-        h1.innerHTML = data[i].name;
-        
-        
-        //'<button id="btn" onclick="myFunction()" name="btn">-   Delete</button>';
-        
-        muffinElement.appendChild(h1);
-
-        let h2 = document.createElement('H2');
-        h2.classList.add('flavour');
-        //getting the flavour on json
-        h2.innerHTML = data[i].flavour;
-
-        muffinElement.appendChild(h2);
-
-        let h3 = document.createElement('H3');
-        h3.classList.add('price');
-        //getting price on json
-        h3.innerHTML = data[i].price;
-
-        muffinElement.appendChild(h3);
-
-
-        //document.getElementById("myBtn").addEventListener("click", displayDate);
-
 
 
     }
+     const pickData = (row) => (event) => {
 
-}
+            muffin = row ;
+            const selected = document.querySelector('.selected')
+        console.log(muffin);
+            if(selected){
+            selected.className = ''
+            }
+        
+        document.getElementById(row._id).className = 'selected'
+        }
 
-function displayDate() {
-  var test =  document.getElementById('dunderm').innerHTML;
-  console.log(test);
-}
+
+function deleteMuf(){
+
+    var deleteMuffinSelected = muffin._id;
+   
+       var xhr = new XMLHttpRequest();
+       xhr.open( "DELETE", `/admin-list/${deleteMuffinSelected}` );
+       xhr.setRequestHeader( "Content-Type", "application/json" );
+       xhr.onload = () => {
+         if ( xhr.status === 200 ) {
+           location.reload( true );
+           console.log( xhr.responseText );
+         } else {
+           console.log( xhr.status, xhr.responseText );
+         }
+       }
+       xhr.send();
+     }
+   
+
+
+
 //function that will get values from the sign up form
-function checkregister() { 
-        var name = document.forms["RegForm"]["name"]; 
-        var flavour = document.forms["RegForm"]["flavour"]; 
-        var price = document.forms["RegForm"]["price"]; 
+// function checkregister() { 
+//         var name = document.forms["RegForm"]["name"]; 
+//         var flavour = document.forms["RegForm"]["flavour"]; 
+//         var price = document.forms["RegForm"]["price"]; 
  
         
-       // var formData = JSON.stringify($("RegForm").serializeArray());
-       // console.log(name);
+//        // var formData = JSON.stringify($("RegForm").serializeArray());
+//        // console.log(name);
 
 
-    //in case any of the items is empty prompt a message to the user before it sends data
-        if (name.value == "") { 
-            window.alert("Please enter the name of the new muffin."); 
-            name.focus(); 
-            return false; 
-        } 
+//     //in case any of the items is empty prompt a message to the user before it sends data
+//         if (name.value == "") { 
+//             window.alert("Please enter the name of the new muffin."); 
+//             name.focus(); 
+//             return false; 
+//         } 
   
-        if (flavour.value == "") { 
-            window.alert("Please enter the flavour."); 
-            flavour.focus(); 
-            return false; 
-        } 
+//         if (flavour.value == "") { 
+//             window.alert("Please enter the flavour."); 
+//             flavour.focus(); 
+//             return false; 
+//         } 
   
-        if (price.value == "") { 
-            window.alert( 
-              "Please enter a valid price."); 
-            price.focus(); 
-            return false; 
-        } 
+//         if (price.value == "") { 
+//             window.alert( 
+//               "Please enter a valid price."); 
+//             price.focus(); 
+//             return false; 
+//         } 
   
-                return true; 
-    } 
+//                 return true; 
+//     } 
 
   function myFunction(){
        

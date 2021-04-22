@@ -6,8 +6,8 @@ var http = require('http'),
     expAutoSan = require('express-autosanitizer'),
     logger = require('morgan'),
     nodemon = require('nodemon'),
-    bodyparse = require('body-parser'),
-    cors = require('cors');
+    bodyParser = require('body-parser'),
+   // cors = require('cors');
     mongoose = require('mongoose'),
     dotenv = require('dotenv'),
     methodOverride = require('method-override');
@@ -21,6 +21,7 @@ app.use(express.urlencoded({extended: true})); //We allow the data sent from the
 app.use(express.json()); //We include support for JSON that is coming from the client
 app.use(expAutoSan.all);//data sanitizer
 app.use(methodOverride('_method'));
+
 
 app.use(require('./routes'));
 
