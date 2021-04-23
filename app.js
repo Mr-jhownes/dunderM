@@ -22,14 +22,10 @@ app.use(expAutoSan.all);//data sanitizer
 
 app.use(require('./routes'));
 
-// server.listen(process.env.PORT || 8000, function () {
-//     var addr = server.address();
-//     console.log("Server listening at ", addr.address + ";" + addr.port);
-// })
-
-app.listen(port, function(err){
-    console.log('Listening on port: ' + port);
-});
+server.listen(process.env.PORT || 8000, function () {
+    var addr = server.address();
+    console.log("Server listening at ", addr.address + ";" + addr.port);
+})
 
 const dbURI = process.env.DB_URL;
 
