@@ -6,8 +6,8 @@ var http = require('http'),
     expAutoSan = require('express-autosanitizer'),
     logger = require('morgan'),
     mongoose = require('mongoose'),
-    dotenv = require('dotenv'),
-    methodOverride = require('method-override');
+    dotenv = require('dotenv');
+    
 
 var app = express();
 //var server = http.createServer(app);// creating a server
