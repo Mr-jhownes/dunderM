@@ -5,7 +5,6 @@ var http = require('http'),
     fs = require('fs'),
     expAutoSan = require('express-autosanitizer'),
     logger = require('morgan'),
-    nodemon = require('nodemon'),
     mongoose = require('mongoose'),
     dotenv = require('dotenv'),
     methodOverride = require('method-override');
