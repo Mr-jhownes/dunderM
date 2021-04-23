@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Muffins list</title>
-    
+
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <!-- page that shows the items from json, the menu of muffins --> 
+    <!-- page that shows the items from json, the menu of muffins -->
 </head>
-<body>
-    <div class ="bg"></class>
-        <!-- nav bar that allows customers to log in sign up and check the menu --> 
-         <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">DunderMuffin</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li ><a href="index.html">Home</a></li>
-      <li class="active"><a href="#">Our Muffins</a></li>
-      <li><a href="#">Our company</a></li>
-    </ul>
 
-     <ul class="nav navbar-nav navbar-right">
-      <li><a href="login.html"><span class="glyphicon glyphicon-user"></span> Log in</a></li>
-    </ul>
-      </div>
-</nav> 
-        <div class="test" h1>Our selection</h1></div>
-    <div class="bglist">
-        <!-- dunderm is responsable for passing the menu from json to html --> 
-        <div id="th"></div>
-    <div id="dunderm"></div>
-       </class>
-    <script src="js/data.js"></script>
-  
-    
+<body>
+    <div class="bg">
+        </class>
+        <!-- nav bar that allows the user to view the list of muffins manage by creating or deleting muffin -->
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">DunderMuffin</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active"><a href="#">Our Muffins</a></li>
+                    <li><a href="admin-list.html">Manage Muffins</a></li>
+                </ul>
+
+            </div>
+        </nav>
+        <div class="heading" h1>Our selection</h1>
+        </div>
+        <div class="bglist">
+            <!-- dunderm is responsable for read and populate a table com mongoDB -->
+            <div id="th"></div>
+            <div id="dunderm"></div>
+            </class>
+            <script src="js/data.js"></script>
+
+
 </body>
+
 </html>

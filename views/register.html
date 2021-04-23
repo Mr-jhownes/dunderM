@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,51 +8,51 @@
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
+
 <body>
-    <div class ="bg"></class>
+    <div class="bg">
+        </class>
 
-    <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="index.html">DunderMuffin</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="admin-list.html">Our Muffins</a></li>
-      <li><a href="#">Our company</a></li>
-    </ul>
-   
-  </div>
-</nav> 
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">DunderMuffin</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="admin-list.html">Our Muffins</a></li>
+                    <li><a href="#">Our company</a></li>
+                </ul>
 
-<!-- page that will take the input from the user and send to js file-->
-<!-- checkregister will be checkin if all the fields are filled-->
+            </div>
+        </nav>
 
-<div class="formReg">
-<h1>Register a new muffin</h1> 
-    <form name="RegForm" onsubmit="return checkregister()" action="/admin-list" 
-           method="post"> 
-        <p>Name: <input type="text" size="65" name="name" /></p> 
-        <br /> 
-        <p>Flavour: <input type="text" size="65" name="flavour" /></p> 
-        <br /> 
-        <p>Price: <input type="text" size="65" name="price" /></p> 
-        <br /> 
-      
-  
-        <br /> 
-        <br /> 
-        
-            <input type="submit" 
-                   value="Save" name="Submit" /> 
-            <input type="reset" 
-                   value="Reset" name="Reset" /> 
-        </p> 
-    </form> 
-   
-   </div>
-    
-    
-    <script src="js/create.js"></script>
+        <!-- page that will take the input from the user and send to js file-->
+        <!-- checkregister will be checkin if all the fields are filled-->
+
+        <div class="formReg">
+            <h1>Register a new muffin</h1>
+            <form name="RegForm" onsubmit="return checkregister()" action="/admin-list" method="post">
+                <p>Name: <input type="text" size="65" name="name" /></p>
+                <br />
+                <p>Flavour: <input type="text" size="65" name="flavour" /></p>
+                <br />
+                <p>Price: <input type="text" size="65" name="price" /></p>
+                <br />
+
+
+                <br />
+                <br />
+
+                <input type="submit" value="Save" name="Submit" />
+                <input type="reset" value="Reset" name="Reset" />
+                </p>
+            </form>
+
+        </div>
+
+
+        <script src="js/create.js"></script>
 </body>
+
 </html>

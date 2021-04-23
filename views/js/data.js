@@ -1,4 +1,4 @@
-//this js is responsable for reading the json and passing through the html printing the items on client side
+//data js is responsable for retrieving data from the database in the back end and insert in ta table
 
 //requesting data from the server
 const muffinElement = document.getElementById('dunderm');
@@ -6,143 +6,93 @@ const xhttp = new XMLHttpRequest();
 let data = null;
 
 //executing the function requestmuffin where it will be parsed the data from json
-(function(){
+(function () {
     requestMuffin();
 }());
 
-function requestMuffin(){
-    
-    xhttp.onreadystatechange = function() {
+function requestMuffin() {
+
+    xhttp.onreadystatechange = function () {
         //checking if everything is good, and there are no mistakes
         if (this.readyState == 4 && this.status == 200) {
-            //after json is parsed storing on data and send to function shipsrender
+            //after json is parsed storing on data and send to function  muffinRender
             data = JSON.parse(this.responseText);
             muffinRender(data);
-            //myFunction(data);
-                        
+
+
         }
     };
     //re-initialize the request
-    console.log(data)
     xhttp.open("GET", "/admin-list", true);
     xhttp.send();
 }
-//function that will loop throgh the data array and printing the element to the screen
-function muffinRender(data){
-    
-    var muffin2;
+//function that will loop throgh the data array and printing the element to the screen through a table
+function muffinRender(data) {
 
-    var col= ["_id", "name", "flavour", "price"];
+
+    var col = ["_id", "name", "flavour", "price"];
 
     var tb = document.createElement("table");
     tb.className = "container table";
 
     var tr = tb.insertRow(-1);
-
-    for(var i = 0; i< col.length; i++){
+    //looping through col array and populating the theader for a cell
+    for (var i = 0; i < col.length; i++) {
         var th = document.createElement("th");
         th.innerHTML = col[i];
         tr.appendChild(th);
-        
-    }
 
+    }
+    //looping through the data from db and populating the table
     for (var i = 0; i < data.length; i++) {
-            
+
         tr = tb.insertRow(-1);
+        //event listener which will allow to select the specific row and delete data
         tr.addEventListener('click', pickData(data[i]));
         tr.id = data[i]._id
-        for(var j = 0; j < col.length; j++){
+        for (var j = 0; j < col.length; j++) {
             var newItem = tr.insertCell(-1);
             newItem.innerHTML = data[i][col[j]];
         }
     }
+    //appending the table to present on html
     muffinElement.innerHTML = "";
     muffinElement.appendChild(tb);
-        
-
-
-    }
-     const pickData = (row) => (event) => {
-
-            muffin = row ;
-            const selected = document.querySelector('.selected')
-        console.log(muffin);
-            if(selected){
-            selected.className = ''
-            }
-        
-        document.getElementById(row._id).className = 'selected'
-        }
-
-
-function deleteMuf(){
-
-    var deleteMuffinSelected = muffin._id;
-   
-       var xhr = new XMLHttpRequest();
-       xhr.open( "DELETE", `/admin-list/${deleteMuffinSelected}` );
-       xhr.setRequestHeader( "Content-Type", "application/json" );
-       xhr.onload = () => {
-         if ( xhr.status === 200 ) {
-           location.reload( true );
-           console.log( xhr.responseText );
-         } else {
-           console.log( xhr.status, xhr.responseText );
-         }
-       }
-       xhr.send();
-     }
-   
 
 
 
-//function that will get values from the sign up form
-// function checkregister() { 
-//         var name = document.forms["RegForm"]["name"]; 
-//         var flavour = document.forms["RegForm"]["flavour"]; 
-//         var price = document.forms["RegForm"]["price"]; 
- 
-        
-//        // var formData = JSON.stringify($("RegForm").serializeArray());
-//        // console.log(name);
-
-
-//     //in case any of the items is empty prompt a message to the user before it sends data
-//         if (name.value == "") { 
-//             window.alert("Please enter the name of the new muffin."); 
-//             name.focus(); 
-//             return false; 
-//         } 
-  
-//         if (flavour.value == "") { 
-//             window.alert("Please enter the flavour."); 
-//             flavour.focus(); 
-//             return false; 
-//         } 
-  
-//         if (price.value == "") { 
-//             window.alert( 
-//               "Please enter a valid price."); 
-//             price.focus(); 
-//             return false; 
-//         } 
-  
-//                 return true; 
-//     } 
-
-  function myFunction(){
-       
-
-         var list = document.getElementById("muffin").value;
-        console.log(list);
-         for (var i = 0; i < data.length; i++) {
-
-            if(list === data[i].name){
-        
-
-            }
-
-            window.alert( 
-              "This name is not registered to delete")
-    }
 }
+//this function handles the select row
+const pickData = (row) => (event) => {
+
+    muffin = row;
+    const selected = document.querySelector('.selected')
+    console.log(muffin);
+    if (selected) {
+        selected.className = ''
+    }
+
+    document.getElementById(row._id).className = 'selected'
+}
+
+//this function will take the id selected and sending to the back end which will perform the deletion of the item seleted
+function deleteMuf() {
+    //the deletion  will be done taking the id of the muffin
+    var deleteMuffinSelected = muffin._id;
+
+    //xhttp will be use for the interaction between frontend and back end
+    //xhr will take method, and the path to be redirecting the item to be deleted
+    var xhr = new XMLHttpRequest();
+    xhr.open("DELETE", `/admin-list/${deleteMuffinSelected}`);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onload = () => {
+        if (xhr.status === 200) {
+            location.reload(true);
+            console.log(xhr.responseText);
+        } else {
+            console.log(xhr.status, xhr.responseText);
+        }
+    }
+    xhr.send();
+}
+

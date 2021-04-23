@@ -10,6 +10,7 @@ body, html {
      background: url("/img/muffin.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
+  height: 100%;
   -o-background-size: cover;
   background-size: cover;
 }
@@ -29,10 +30,8 @@ body, html {
   background-size: cover; 
   
 }
-
-
  
-.test{
+.heading{
     font-family: 'Charmonman';
     text-align: center;
     font-size: 120px;
@@ -46,40 +45,15 @@ body, html {
     display: flex;
     justify-content: center;
     padding-top: 50px;
-    
-
-    
+      
 }
 
-.name {
-    font-family: 'Charmonman', cursive;
-    color:#ffffff;
-    font-size: 80px;
-   text-align: center;
-    display: block;
-    text-shadow: 3px 3px 3px #d44b4b;
-  
-  
+.bglist .button {
+    position: absolute;
+    background-color: black;
+  color: white;
+  font-size: 16px;
 }
-
-.flavour {
-    font-family: 'Charmonman', cursive;
-    color: #19fd93;
-    font-size: 60px;
-     text-align: center;
-     display: block;
-     text-shadow: 3px 3px 3px #d44b4b;
-}
-
-.price{
-    font-size: 60px;
-     text-align: center;
-     display: block;
-     font-family: 'Charmonman', cursive;
-    color: #19fd93;
-    text-shadow: 3px 3px 3px #d44b4b;
-}
-
 .formReg {
     background-color:rgba(0, 0, 0, 0.5);
    text-align: center;
@@ -128,4 +102,48 @@ body, html {
     font-size: large;
 }
 
+.selected {
+      background-color: #abc;
+}
+
+.table {
+    background-color: #d44b4b;
+    border-style: inset;
+}
+.table tr:hover {
+    background-color:#f5f5f5;
+}
+
+.table{
+    width: 400px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.table {
+  overflow: auto;
+  height: 100px;
+}
+
+.table th {
+  background: black;
+  color:#fff;
+}
+
+.table th, .table td {
+  padding: 5px;
+  text-align: left;
+  width: 200px;
+  font-size: large;
+}
+
+.table{
+  display:block;
+  overflow:auto;
+  height:400px;
+  width:100%;
+}
+.table th tr{
+  display:block;
+}
 
