@@ -10,8 +10,8 @@ var http = require('http'),
     methodOverride = require('method-override');
 
 var app = express();
-var server = http.createServer(app);// creating a server
-//var port = process.env.PORT || 8000;
+//var server = http.createServer(app);// creating a server
+var port = process.env.PORT || 8000;
 
 dotenv.config();
 app.use(express.static(path.resolve(__dirname, 'views'))); //We define the views folder as the one where all static content will be served
@@ -22,10 +22,14 @@ app.use(expAutoSan.all);//data sanitizer
 
 app.use(require('./routes'));
 
-server.listen(process.env.PORT || 8000, function () {
-    var addr = server.address();
-    console.log("Server listening at ", addr.address + ";" + addr.port);
-})
+// server.listen(process.env.PORT || 8000, function () {
+//     var addr = server.address();
+//     console.log("Server listening at ", addr.address + ";" + addr.port);
+// })
+app.listen(port, function(err){
+    console.log('Listening on port: ' + port);
+});
+
 
 const dbURI = process.env.DB_URL;
 
