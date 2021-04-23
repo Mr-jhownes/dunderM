@@ -21,7 +21,7 @@ app.use(expAutoSan.all);//data sanitizer
 
 app.use(require('./routes'));
 
-server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function () {
+server.listen(process.env.PORT || 8000, function () {
     var addr = server.address();
     console.log("Server listening at ", addr.address + ";" + addr.port);
 })
