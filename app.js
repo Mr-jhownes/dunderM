@@ -11,7 +11,7 @@ var http = require('http'),
 
 var app = express();
 var server = http.createServer(app);// creating a server
-var port = process.env.PORT || 8000;
+//var port = process.env.PORT || 8000;
 
 dotenv.config();
 app.use(express.static(path.resolve(__dirname, 'views'))); //We define the views folder as the one where all static content will be served
